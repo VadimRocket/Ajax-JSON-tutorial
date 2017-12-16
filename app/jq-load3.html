@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+
+   <title>JavaScript &amp; jQuery - Chapter 8: Ajax &amp; JSON - .load() page 1 of 3</title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+  <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+
+</head>
+
+      <div class="container">
+        <div class="row">
+        <header>
+             <h1>.load()</h1>
+            <nav>
+              <a href="jq-load.html" class="current">Описание</a>
+              <a href="jq-load2.html">Пример 1</a>
+              <a href="jq-load3.html">Пример 2</a>
+            </nav>
+          </header>
+        </div>
+      </div>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+           <section id="content">
+                <div id="container">
+                     <p>Организуем ajax-запрос с передачей параметров, а так же обработаем завершение выполнения запроса выведя на экран соответствующее сообщение:</p>
+                    <pre>
+                      $("#result").load(
+                      "ajax/test.php",
+                      {
+                        param1: "param1",
+                        param2: 2
+                      },
+                      function(){alert("Получен ответ от сервера.")}
+                    );
+                    </pre>
+                   <!--  <p>На сервере, обработка ajax-запроса ничем не отличается от обработки обычного запроса (как когда вызывается главная страница сайта):</p> -->
+                     <pre class="de1">  На сервер были отправлены следующие параметры:
+                      &lt;ul&gt;
+                        &lt;li&gt;<span class="kw2">&lt;?php</span> <span class="re0">$_GET</span><span class="br0">[</span><span class="st0">"param1"</span><span class="br0">]</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/li&gt;
+                        &lt;li&gt;<span class="kw2">&lt;?php</span> <span class="re0">$_GET</span><span class="br0">[</span><span class="st0">"param2"</span><span class="br0">]</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/li&gt;
+                      &lt;/ul&gt;</pre>
+                                      
+                      <p>В результате этого запроса, на странице, в элемент с идентификатором result будет вставлен сгенерированный на сервере html-текст (список с отправленными параметрами), а так же, на экран будет выведено сообщение "Получен ответ от сервера.".</p>                
+                </div>
+
+           </section>
+      </div>
+    </div>
+  </div>
+    <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="footer__content">
+            <picture>
+              <img class="img-responsive" src="img/ajax.png" alt="">
+            </picture>
+        </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="footer__copy">
+            <p>&#169; 2017</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/scripts.min.js"></script>
+  <script src="js/jq-load.js"></script>
+</body>
+</html>
+
+
+
+
+
+  

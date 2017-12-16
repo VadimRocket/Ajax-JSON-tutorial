@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<attraction>
+  <sight>
+    <location>Гомель</location>
+    <desc>Дворец Румянцевых — Паскевичей</desc>
+    <photo>img/gomel/Rumyantsev Palace.jpg</photo>
+  </sight>
+  <sight>
+    <location>Гомель</location>
+    <desc>КУП "Гомельский парк"</desc>
+    <photo>img/gomel/Gomel_Park.jpg</photo>
+  </sight>
+  <sight>
+    <location>Гомель</location>
+    <desc>Гомельский областной музей военной славы</desc>
+    <photo>img/gomel/Museum of Military Glory.png</photo>
+  </sight>
+</attraction>

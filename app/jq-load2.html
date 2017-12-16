@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+
+   <title>JavaScript &amp; jQuery - Chapter 8: Ajax &amp; JSON - .load() page 1 of 3</title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+  <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+
+</head>
+
+      <div class="container">
+        <div class="row">
+        <header>
+            <h1>.load()</h1>
+            <nav>
+              <a href="jq-load.html" class="current">Описание</a>
+              <a href="jq-load2.html">Пример 1</a>
+              <a href="jq-load3.html">Пример 2</a>
+            </nav>
+          </header>
+        </div>
+      </div>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+           <section id="content">
+                <div id="container">
+                    <h2>Пример 1</h2>
+                    <p>.load() является наиболее простым средством для подгрузки и вставки недостающего содержимого с сервера. Он делает ajax-запрос к серверу и вставляет полученные данные в элементы страницы, к которым применялся метод:</p>
+<pre>
+// поместим содержимое страницы <tt>http://hostname.ru/ajax/test.html</tt>
+// внутрь элемента с id = result
+$("#result").load("ajax/test.html");
+</pre>
+<p>Если .load() будет применен к объекту jQuery, который представляет 0 элементов, то запрос на сервер выполняться не будет. <br> <strong>Частичная вставка данных</strong></p>
+
+<p>
+  
+.load() имеет особенность, позволяющую вставлять лишь часть присланных сервером данных. Она заключается в особенных условиях задания параметра url. Если в нем присутствуют пробелы, то вся часть после первого из них рассматривается как селектор, который будет применен для фильтрации данных от сервера:</p>
+<pre>$('#result').load('ajax/test.html #container');</pre>
+<p>В данном примере, jQuery найдет в полученных данных элемент с id = container и поместит его в элемент с id = result.
+
+Для разбора полученных данных, а так же для их вставки на страницу, jQuery использует свойство .innerHTML. Некоторые браузеры при этом автоматически "обрезают" некоторые элементы документа, например такие как html, title, или head. Поэтому, данные с которыми оперирует .load() могут отличаться от первоначальных.
+</p>
+                </div>
+           </section>
+      </div>
+    </div>
+  </div>
+    <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="footer__content">
+            <picture>
+              <img class="img-responsive" src="img/ajax.png" alt="">
+            </picture>
+        </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="footer__copy">
+            <p>&#169; 2017</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/scripts.min.js"></script>
+  <script src="js/jq-load.js"></script>
+</body>
+</html>
+
+
+
+
+
+  

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  <meta charset="utf-8">
+
+   <title>JavaScript &amp; jQuery - Chapter 8: Ajax &amp; JSON - .load() page 1 of 3</title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+  <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+
+</head>
+
+      <div class="container">
+        <div class="row">
+        <header>
+             <h1>.load()</h1>
+            <nav>
+              <a href="jq-load.html" class="current">Описание</a>
+              <a href="jq-load2.html">Пример 1</a>
+              <a href="jq-load3.html">Пример 2</a>
+            </nav>
+          </header>
+        </div>
+      </div>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+           <section id="content">
+                <div id="container">
+                     <h2>.load()</h2>
+                  <h3>Ajax запрос HTML-данных</h3>
+                  <p>Осуществляет запрос к серверу без перезагрузки страницы. Полученные от сервера данные будут автоматически помещены внутрь выбранных элементов. Функция имеет несколько необязательных параметров.</p>
+                  <span class="line">.load(url,[data],[callback],[dataType]):jQuery</span>
+                  <p><strong>url</strong> — url-адрес, по которому будет отправлен запрос. <br>
+                      <strong>data</strong> — данные, которые будут отправлены на сервер. Они должны быть представлены в форме объекта, например: {fName1:value1, fName2:value2, ...}. <br>
+                      <strong>callback(data, textStatus, XMLHttpRequest)</strong> — пользовательская функция, которая будет вызвана после того, как присланный сервером html-текст будет помещен в выбранные элементы страницы. <br>
+                      data — данные, присланные с сервера.
+                      textStatus — статус того, как был выполнен запрос. <br>
+                      XMLHttpRequest — объект XMLHttpRequest <br>
+                      dataType — ожидаемый тип данных, которые пришлет сервер в ответ на запрос (подробности <a href="http://jquery.page2page.ru/index.php5/Ajax-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81">тут</a>).
+                  </p>
+                  <p class="line-red"><strong>Замечание 1</strong>: существует одноименный метод .load(), позволяющий обрабатывать завершение загрузки элементов страницы. jQuery различает вызовы этих методов по заданным аргументам. <br>
+                  <strong>Замечание 2</strong>: большинство браузеров не позволяют проводить ajax-запросы на ресурсы с доменами, поддоменами и протоколами, отличными от текущего.</p>
+                </div>
+           </section>
+      </div>
+    </div>
+  </div>
+    <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="footer__content">
+            <picture>
+              <img class="img-responsive" src="img/ajax.png" alt="">
+            </picture>
+        </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="footer__copy">
+            <p>&#169; 2017</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/scripts.min.js"></script>
+  <script src="js/jq-load.js"></script>
+</body>
+</html>
+
+
+
+
+
+  

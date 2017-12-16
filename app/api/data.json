@@ -1,0 +1,19 @@
+{
+  "ourcode": [
+    {
+      "desc": "Commits",
+      "codedata": "730",
+      "icon": "img/resources/commits.svg"
+    },
+    {
+      "desc": "New code lines",
+      "codedata": "30 667",
+      "icon": "img/resources/new.svg"
+    },
+    {
+      "desc": "Remove code lines",
+      "codedata": "11 124",
+      "icon": "img/resources/remove.svg"
+    }
+  ]
+}

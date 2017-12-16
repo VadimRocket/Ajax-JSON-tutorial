@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+      <title> Ajax &amp; JSON - .get()</title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+  <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jsget-container">
+        <div class="row">
+      <div class="col-sm-12">
+          <header><h3>This example will only work if you run it on a web server (it will not work locally)</h3></header>
+          <section id="content">
+            <h2>Vote for a t-shirt.</h2>
+            <p id="selector">Select which color t-shirt you want to see this year:</p>
+          </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+      <h1>Пример 2 </h1>
+        <p>Рассмотрим более сложное взаимодействие с сервером. Отправим данные на сервер и обработаем их. Javascript будет выглядеть следующим образом:</p>
+        <pre>
+          // На сервер будет отправлен запрос страницы http://hostname/ajaxtest.php и указаны два параметра.  
+          // После получения ответа от сервера будет вызвана функция onAjaxSuccess, которая выведет 
+          // на экран сообщение с данными, присланными сервером.
+          $.get(
+            "/ajaxtest.php",
+            {
+              param1: "param1",
+              param2: 2
+            },
+            onAjaxSuccess
+          );
+           
+          function onAjaxSuccess(data)
+          {
+            // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
+            alert(data);
+          }
+        </pre>
+        <p>На сервере, обработка Ajax запроса ничем не отличается от обработки обычного запроса:</p>
+        <pre class="de1"><span class="kw2">&lt;?php</span>
+          <span class="co1">// файл http://hostname/ajaxtest.php</span>
+          <span class="kw1">echo</span> <span class="st0">"Получены параметры с сервера: param1 = "</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">[</span><span class="st_h">'param1'</span><span class="br0">]</span><span class="sy0">.</span><span class="st0">" и param2 = "</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">[</span><span class="st_h">'param2'</span><span class="br0">]</span><span class="sy0">;</span>
+        <span class="sy1">?&gt;</span></pre>
+        <h2>Продвинутое использование</h2>
+        <pre>
+          $.get() является сокращенным вариантом функции $.ajax(), вызванной со следующими параметрами:
+          $.ajax({
+            url: url,
+            data: data,
+            success: success,
+            dataType: dataType
+          });
+        </pre>
+        <p>Подробности использования параметра dataType можно найти в описании .<a href=" http://jquery.page2page.ru/index.php5/Ajax-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81#.D0.9F.D0.B0.D1.80.D0.B0.D0.BC.D0.B5.D1.82.D1.80_dataType">$.ajax()</a></p>
+        <p class="line-red">Замечание: большинство браузеров не позволяют проводить ajax-запросы на ресурсы с доменами, поддоменами и протоколами, отличными от текущего. Однако, это ограничение не распространяется на запросы типа jsonp и script.</p>
+        <h3>Обработка выполнения запроса</h3>
+        <p>Стандартным средством обработки успешного выполнения запроса, является указание собственной функции в параметре success. При вызове она получает данные переданные сервером, текстовый статус выполнения запроса, а так же <a href="http://jquery.page2page.ru/index.php5/%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82_jqXHR">Объект jqXHR</a>.</p>
+        <pre>
+          // Запустим ajax-запрос, установим обработчики его выполнения и
+          // сохраним объект jqxhr данного запроса для дальнейшего использования.
+          var jqxhr = $.get("example.php")
+          .success(function() { alert("Успешное выполнение"); })
+          .error(function() { alert("Ошибка выполнения"); })
+          .complete(function() { alert("Завершение выполнения"); });
+         
+          // какой-либо код...
+         
+          // установим еще один обработчик удачного выполнения запроса
+          jqxhr.complete(function(){ alert("Успешное выполнения 2"); });
+        </pre>
+      </div>
+    </div>
+    </div>
+    <h1>example 3</h1>
+    <h2>Our code line counter</h2>
+    <p id="total" class="our_code"></p>
+    <div>
+        <div class="col-sm-3  our_code"><img src="img/resources/commits.svg" alt="Commits">
+          <p id="commits"></p>
+          <p >Commits</p>
+        </div>
+        <div class="col-sm-3 our_code">  <img src="img/resources/new.svg" alt="new">
+          <p  id="new-code"></p>
+          <p >New code lines</p>
+        </div>
+        <div class="col-sm-3 our_code">  <img src="img/resources/remove.svg" alt="remove">
+          <p id="remove-code"></p>
+          <p>Remove code lines</p>
+        </div>
+      </div>
+  </div>
+    
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/scripts.min.js"></script>
+  <script src="js/jq-get.js"></script>
+</body>
+</html>
+
+
+
+
+
+  
+
